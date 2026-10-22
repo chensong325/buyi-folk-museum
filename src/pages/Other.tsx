@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { creativeItems, routes, site } from '../data'
-import { ChapterFooter, PageHero, PatternGlyph, QuoteBand, Reveal, SectionHeading } from '../components/Site'
+import { ChapterFooter, PageHero, PatternGlyph, QuoteBand, ResponsiveImage, Reveal, SectionHeading } from '../components/Site'
 
 const route = (path: string) => routes.find((item) => item.path === path)!
 
@@ -59,7 +59,7 @@ export function CreativePage() {
 
       <section className="creative-gallery">
         <Reveal className="creative-gallery-image">
-          <img src={`${import.meta.env.BASE_URL}images/image14.webp`} alt="布依族纹样文创灵感展示" loading="lazy" />
+          <ResponsiveImage src={`${import.meta.env.BASE_URL}images/image14.webp`} alt="布依族纹样文创灵感展示" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 55vw" />
         </Reveal>
         <Reveal className="creative-gallery-copy" delay={0.08}>
           <p className="eyebrow">使用与尊重</p>
@@ -157,3 +157,6 @@ export function CopyrightPage() {
     </>
   )
 }
+
+
+

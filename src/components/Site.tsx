@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useId, useState, type ImgHTMLAttributes, type ReactNode } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { routeGroups, routes, site } from '../data'
@@ -214,6 +214,27 @@ export function Layout({ children }: { children: ReactNode }) {
   )
 }
 
+export function ResponsiveImage({
+  src,
+  alt,
+  sizes = '100vw',
+  loading = 'lazy',
+  ...rest
+}: Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'srcSet'> & { src: string; alt: string; sizes?: string }) {
+  const base = src.endsWith('.webp') ? src.slice(0, -5) : src
+  const baseWidth = /\/image1\.webp$/.test(src) ? 876 : 1400
+  return (
+    <img
+      src={src}
+      srcSet={`${base}-480.webp 480w, ${base}-960.webp 960w, ${src} ${baseWidth}w`}
+      sizes={sizes}
+      alt={alt}
+      loading={loading}
+      decoding="async"
+      {...rest}
+    />
+  )
+}
 export function PageHero({
   route,
   image,
@@ -240,7 +261,7 @@ export function PageHero({
         </Reveal>
       </div>
       <Reveal className="page-hero-image" delay={0.08}>
-        <img src={image} alt={imageAlt} />
+        <ResponsiveImage src={image} alt={imageAlt} sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 46vw" loading="eager" fetchPriority="high" />
         {imageCaption && <figcaption>{imageCaption}</figcaption>}
       </Reveal>
       <span className="hero-index" aria-hidden="true">{String(route.order).padStart(2, '0')}</span>
@@ -299,7 +320,7 @@ export function PhotoStory({ item }: { item: PhotoStoryItem }) {
   return (
     <Reveal className={`photo-story ${item.reverse ? 'photo-story-reverse' : ''}`}>
       <figure className="photo-story-image">
-        <img src={item.image.src} alt={item.image.alt} loading="lazy" />
+        <ResponsiveImage src={item.image.src} alt={item.image.alt} sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 54vw" />
         {item.image.caption && <figcaption>{item.image.caption}</figcaption>}
       </figure>
       <div className="photo-story-copy">
@@ -379,8 +400,12 @@ export function SoundIcon() {
 export function ImageNote({ src, alt, index }: { src: string; alt: string; index: string }) {
   return (
     <figure className="image-note">
-      <img src={src} alt={alt} loading="lazy" />
+      <ResponsiveImage src={src} alt={alt} sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 50vw" />
       <figcaption><span>{index}</span>{alt}</figcaption>
     </figure>
   )
 }
+
+
+
+

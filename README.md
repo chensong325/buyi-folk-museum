@@ -53,3 +53,18 @@ pnpm test:e2e
 仓库推送到 GitHub 后，在仓库 Settings → Pages 中将 Source 设为 **GitHub Actions**。推送 `main` 分支会触发 `.github/workflows/deploy.yml`，自动测试、构建并部署 `dist`。
 
 当前项目已初始化为可在任意仓库子路径部署的静态站点，没有提交远程仓库地址。
+
+## 移动端性能优化
+
+- 页面图片按 480、960 和原始宽度生成响应式 WebP，浏览器会根据屏幕尺寸自动选择。
+- 装饰字体按网站实际使用字符进行子集化，加载体积从约 3 MB 降至约 317 KB。
+- 背景音乐压缩为 128 kbps MP3，并由 `preload="none"` 改为进入展馆后再加载。
+- 首屏图片预加载，正文图片使用原生懒加载和异步解码。
+
+重新生成优化资源：
+
+```bash
+pnpm assets:images
+pnpm assets:fonts
+pnpm assets:audio
+```

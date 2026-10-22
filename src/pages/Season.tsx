@@ -5,6 +5,7 @@ import {
   ChapterFooter,
   PageHero,
   QuoteBand,
+  ResponsiveImage,
   Reveal,
   SectionHeading,
 } from '../components/Site'
@@ -58,7 +59,7 @@ export function LiuyueliuPage() {
 
       <section className="festival-editorial">
         <Reveal className="festival-editorial-image">
-          <img src={heroCrops.festival} alt="六月六节庆人物与活动细节" loading="lazy" />
+          <ResponsiveImage src={heroCrops.festival} alt="六月六节庆人物与活动细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 55vw" />
           <figcaption><span>节令现场</span>共同的时间，让分散的日常重新聚在一起。</figcaption>
         </Reveal>
         <Reveal className="festival-editorial-copy" delay={0.08}>
@@ -123,7 +124,7 @@ export function FoodPage() {
 
       <section className="food-story">
         <Reveal className="food-story-image">
-          <img src={heroCrops.food} alt="五色糯米饭与节庆食物细节" loading="lazy" />
+          <ResponsiveImage src={heroCrops.food} alt="五色糯米饭与节庆食物细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 55vw" />
           <p><span>食物现场</span>色彩来自植物，也来自一桌人共同准备的时间。</p>
         </Reveal>
         <Reveal className="food-story-copy" delay={0.08}>
@@ -216,7 +217,7 @@ export function GeographyPage() {
         </SectionHeading>
         <div className="geography-layout">
           <Reveal className="map-stage">
-            <img src={`${import.meta.env.BASE_URL}images/image13.webp`} alt="文化地理交互底图" />
+            <ResponsiveImage src={`${import.meta.env.BASE_URL}images/image13.webp`} alt="文化地理交互底图" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 58vw" />
             <div className="map-overlay">
               {mapRegions.map((item, index) => (
                 <button
@@ -242,7 +243,7 @@ export function GeographyPage() {
               {region.tags.map((tag) => <span key={tag}>{tag}</span>)}
             </div>
             <div className="map-detail-image">
-              <img src={heroCrops.geography} alt="山地聚落与地域环境细节" loading="lazy" />
+              <ResponsiveImage src={heroCrops.geography} alt="山地聚落与地域环境细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 35vw" loading="lazy" />
             </div>
           </motion.div>
         </div>
@@ -265,3 +266,6 @@ export function GeographyPage() {
     </>
   )
 }
+
+
+

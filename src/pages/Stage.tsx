@@ -5,6 +5,7 @@ import {
   ChapterFooter,
   PageHero,
   QuoteBand,
+  ResponsiveImage,
   Reveal,
   SectionHeading,
   SoundIcon,
@@ -80,11 +81,11 @@ export function InstrumentsPage() {
 
       <section className="stage-photo-pair">
         <Reveal className="stage-photo stage-photo-large">
-          <img src={heroCrops.instrumentA} alt="布依族传统乐器演奏场景局部" loading="lazy" />
+          <ResponsiveImage src={heroCrops.instrumentA} alt="布依族传统乐器演奏场景局部" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 56vw" />
           <p><span>演奏现场</span>乐器与歌唱并非孤立存在，它们在场景中共同完成表达。</p>
         </Reveal>
         <Reveal className="stage-photo" delay={0.08}>
-          <img src={heroCrops.instrumentB} alt="传统乐器与人物的近景细节" loading="lazy" />
+          <ResponsiveImage src={heroCrops.instrumentB} alt="传统乐器与人物的近景细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 42vw" />
           <p><span>声音细节</span>不同音色构成层次，也留下地域与表演者的差异。</p>
         </Reveal>
       </section>
@@ -152,12 +153,12 @@ export function OperaPage() {
 
       <section className="opera-stage-section">
         <Reveal className="opera-poster">
-          <img src={`${import.meta.env.BASE_URL}images/image7.webp`} alt="布依戏演出人物全身" loading="lazy" />
+          <ResponsiveImage src={`${import.meta.env.BASE_URL}images/image7.webp`} alt="布依戏演出人物全身" sizes="(max-width: 900px) 70vw, 32vw" />
           <span className="poster-label">舞台人物 · 展签视觉</span>
           <div className="poster-meta"><span>布依戏</span><small>BUYI OPERA</small></div>
         </Reveal>
         <Reveal className="opera-poster-detail" delay={0.08}>
-          <img src={heroCrops.opera} alt="布依戏舞台服装与身段细节" loading="lazy" />
+          <ResponsiveImage src={heroCrops.opera} alt="布依戏舞台服装与身段细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 48vw" />
           <p>当前无独立授权的演出片段，页面使用项目提供的静态剧照与全馆背景音乐呈现舞台氛围，不将背景曲目误标为布依戏唱段。</p>
         </Reveal>
       </section>
@@ -217,7 +218,7 @@ export function SongsPage() {
 
       <section className="section oral-quote-layout">
         <Reveal className="oral-image">
-          <img src={`${import.meta.env.BASE_URL}images/image8.webp`} alt="古歌吟唱者与口传文化现场" loading="lazy" />
+          <ResponsiveImage src={`${import.meta.env.BASE_URL}images/image8.webp`} alt="古歌吟唱者与口传文化现场" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 42vw" />
           <figcaption>声音，是另一种形式的档案。</figcaption>
         </Reveal>
         <Reveal className="oral-copy" delay={0.08}>
@@ -260,7 +261,7 @@ export function ChabaiPage() {
       </section>
 
       <section className="chabai-photo">
-        <img src={heroCrops.chabai} alt="查白歌节人物与对歌现场细节" loading="lazy" />
+        <ResponsiveImage src={heroCrops.chabai} alt="查白歌节人物与对歌现场细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 55vw" />
         <div>
           <p className="eyebrow">人与人的相会</p>
           <blockquote>“以歌相会，不必把情感一次说尽。”</blockquote>
@@ -283,4 +284,8 @@ export function ChabaiPage() {
     </>
   )
 }
+
+
+
+
 

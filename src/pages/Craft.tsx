@@ -16,6 +16,7 @@ import {
   PageHero,
   PatternGlyph,
   PhotoStory,
+  ResponsiveImage,
   QuoteBand,
   Reveal,
   SectionHeading,
@@ -78,7 +79,7 @@ export function ProcessPage() {
           </div>
           <Reveal className="process-stage" key={step.id}>
             <div className="process-image">
-              <img src={step.image} alt={step.alt} />
+              <ResponsiveImage src={step.image} alt={step.alt} sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 58vw" />
               <span className="process-number">{step.index}</span>
             </div>
             <div className="process-panel" id="process-panel" role="tabpanel">
@@ -202,7 +203,7 @@ export function PatternsPage() {
 
       <section className="section patterns-context">
         <Reveal className="patterns-context-image">
-          <img src={heroCrops.pattern} alt="蜡染纹样局部与布面肌理" loading="lazy" />
+          <ResponsiveImage src={heroCrops.pattern} alt="蜡染纹样局部与布面肌理" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 50vw" />
           <p><span>布面细节</span> 纹样在重复中获得节奏，也在手作差异中保留温度。</p>
         </Reveal>
         <Reveal className="patterns-context-copy" delay={0.08}>
@@ -289,7 +290,7 @@ export function CostumePage() {
         </SectionHeading>
         <div className="costume-layout">
           <Reveal className="costume-stage">
-            <img src={image} alt="布依族传统服饰整体展示" />
+            <ResponsiveImage src={image} alt="布依族传统服饰整体展示" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 58vw" />
             <div className="hotspot-layer">
               {costumeHotspots.map((spot) => (
                 <button
@@ -333,11 +334,11 @@ export function CostumePage() {
 
       <section className="costume-gallery">
         <Reveal className="costume-gallery-item costume-gallery-wide">
-          <img src={heroCrops.costumeA} alt="传统服饰上半身与头饰细节" loading="lazy" />
+          <ResponsiveImage src={heroCrops.costumeA} alt="传统服饰上半身与头饰细节" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 55vw" />
           <p><span>细节 01</span>头饰与衣襟的层次，构成第一眼的身份识别。</p>
         </Reveal>
         <Reveal className="costume-gallery-item" delay={0.06}>
-          <img src={heroCrops.costumeB} alt="传统服饰围腰与裙装局部" loading="lazy" />
+          <ResponsiveImage src={heroCrops.costumeB} alt="传统服饰围腰与裙装局部" sizes="(max-width: 640px) 65vw, (max-width: 900px) 100vw, 40vw" />
           <p><span>细节 02</span>围腰与裙装让纹样在行走中获得节奏。</p>
         </Reveal>
       </section>
@@ -638,3 +639,6 @@ export function CollagePage() {
     </>
   )
 }
+
+
+

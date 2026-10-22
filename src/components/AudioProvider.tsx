@@ -142,7 +142,7 @@ export function AudioProvider({ children }: { children: ReactNode }) {
         ref={audioRef}
         src={site.audio}
         loop
-        preload="metadata"
+        preload="none"
         aria-label="馆内背景音乐"
         data-testid="background-audio"
       />
@@ -155,3 +155,6 @@ export function useMuseumAudio() {
   if (!value) throw new Error('useMuseumAudio must be used inside AudioProvider')
   return value
 }
+
+
+

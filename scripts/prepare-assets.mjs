@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { mkdir, readFile } from 'node:fs/promises';
+import { mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const source = path.resolve('source-assets/images/original');
@@ -7,10 +7,11 @@ const output = path.resolve('public/images');
 await mkdir(output, { recursive: true });
 
 for (let i = 1; i <= 14; i += 1) {
+  const sourceWidth = i === 1 ? 876 : 1400;
   await sharp(path.join(source, `image${i}.png`))
     .rotate()
-    .resize({ width: i === 1 ? 1600 : 1400, withoutEnlargement: false, fit: 'inside' })
-    .webp({ quality: 86, effort: 5 })
+    .resize({ width: sourceWidth, withoutEnlargement: true, fit: 'inside' })
+    .webp({ quality: 82, effort: 6 })
     .toFile(path.join(output, `image${i}.webp`));
 }
 
@@ -23,8 +24,8 @@ const crop = async (name, sourceName, left, top, width, height) => {
   const h = Math.min((meta.height ?? 1) - y, Math.round((meta.height ?? 1) * height));
   await sharp(input)
     .extract({ left: x, top: y, width: w, height: h })
-    .resize({ width: 1000, withoutEnlargement: false, fit: 'inside' })
-    .webp({ quality: 88, effort: 5 })
+    .resize({ width: 1000, withoutEnlargement: true, fit: 'inside' })
+    .webp({ quality: 84, effort: 6 })
     .toFile(path.join(output, `${name}.webp`));
 };
 
@@ -43,7 +44,15 @@ await Promise.all([
   crop('geography-detail', 'image13.png', 0.42, 0.06, 0.56, 0.88),
 ]);
 
-const files = (await import('node:fs/promises')).readdir;
-const all = await (await files(output)).filter((f) => f.endsWith('.webp'));
-console.log(`Generated ${all.length} WebP images`);
-
+const baseImages = (await readdir(output)).filter((file) => file.endsWith('.webp') && !/-(480|960)\.webp$/.test(file));
+for (const file of baseImages) {
+  const input = path.join(output, file);
+  for (const width of [480, 960]) {
+    const target = path.join(output, file.replace(/\.webp$/, `-${width}.webp`));
+    await sharp(input)
+      .resize({ width, withoutEnlargement: true, fit: 'inside' })
+      .webp({ quality: 78, effort: 6 })
+      .toFile(target);
+  }
+}
+console.log(`Generated ${baseImages.length} responsive image sets`);

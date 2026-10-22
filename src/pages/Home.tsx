@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { heroImage, site, themes } from '../data'
-import { Reveal } from '../components/Site'
+import { ResponsiveImage, Reveal } from '../components/Site'
 import { useMuseumAudio } from '../components/AudioProvider'
 
 const INTRO_KEY = 'buyi:intro-seen'
@@ -29,7 +29,7 @@ export function SplashGate({ onEntered }: { onEntered: () => void }) {
       aria-modal="true"
       aria-labelledby="splash-title"
     >
-      <div className="splash-backdrop" style={{ backgroundImage: `url(${heroImage.src})` }} />
+      <ResponsiveImage className="splash-backdrop" src={heroImage.src} alt="" sizes="100vw" loading="eager" fetchPriority="high" />
       <div className="splash-grid" aria-hidden="true" />
       <div className="splash-top">
         <span>{site.fullName}</span>
@@ -93,7 +93,7 @@ export function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <img src={heroImage.src} alt={heroImage.alt} fetchPriority="high" />
+            <ResponsiveImage src={heroImage.src} alt={heroImage.alt} sizes="(max-width: 640px) 65vw, (max-width: 900px) 88vw, 44vw" loading="eager" fetchPriority="high" />
             <figcaption><span>石板房与山地聚落</span><span>01</span></figcaption>
           </motion.figure>
 
@@ -124,7 +124,7 @@ export function HomePage() {
             <Reveal key={theme.id} delay={index * 0.08}>
               <Link className={`theme-card theme-card-${theme.id}`} to={theme.route}>
                 <div className="theme-card-image">
-                  <img src={theme.image} alt="" loading="lazy" />
+                  <ResponsiveImage src={theme.image} alt="" sizes="(max-width: 640px) 70vw, (max-width: 900px) 50vw, 33vw" />
                   <span>{theme.index}</span>
                 </div>
                 <div className="theme-card-copy">
@@ -148,3 +148,6 @@ export function HomePage() {
     </>
   )
 }
+
+
+
