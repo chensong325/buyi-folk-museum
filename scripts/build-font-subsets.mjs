@@ -17,7 +17,7 @@ function walk(dir, out = []) {
 
 let text = '';
 for (const file of walk(root)) text += readFileSync(file, 'utf8');
-text += '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz·—…《》“”‘’：；，。！？、（）【】/％%+.布依风物志贵州民俗文化数字博物馆';
+text += '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz·—…《》“”‘’：；，。！？、（）【】/％%+.一抹靛蓝布依风物贵州民俗文化导览';
 const characters = [...new Set([...text])].join('');
 
 for (const weight of [400, 600]) {

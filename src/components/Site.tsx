@@ -37,11 +37,11 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <Link className="brand" to="/" aria-label="布依风物志首页">
+      <Link className="brand" to="/" aria-label="一抹靛蓝·布依风物——贵州布依族民俗文化导览首页">
         <BrandMark />
         <span className="brand-copy">
-          <strong>布依风物志</strong>
-          <small>BUYI ATLAS</small>
+          <strong>一抹靛蓝</strong>
+          <small>布依风物 · BUYI GUIDE</small>
         </span>
       </Link>
 

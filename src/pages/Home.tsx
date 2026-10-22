@@ -47,7 +47,7 @@ export function SplashGate({ onEntered }: { onEntered: () => void }) {
       </div>
       <div className="splash-bottom">
         <span>01 / 15</span>
-        <span>布依风物志</span>
+        <span>一抹靛蓝 · 布依风物</span>
         <span>SCROLL TO DISCOVER</span>
       </div>
     </motion.div>
@@ -81,7 +81,7 @@ export function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
           >
-            <p className="eyebrow"><span>贵州布依族民俗文化数字博物馆</span><i /></p>
+            <p className="eyebrow"><span>一抹靛蓝·布依风物——贵州布依族民俗文化导览</span><i /></p>
             <h1>山地的日常，<br /><em>藏在蓝与声里。</em></h1>
             <p className="home-lede">三种观看入口，十三段文化现场。不是把民俗陈列在远处，而是从细节里走近它。</p>
             <a className="text-link" href="#themes">开始参观 <span>↓</span></a>

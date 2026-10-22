@@ -103,7 +103,7 @@ function ProductShape({ id, glyph, color }: { id: string; glyph: 'diamond' | 'wa
   }
   return (
     <div className="mock-bookmark">
-      <div><PatternGlyph glyph={glyph} color={color} compact /><span>布依风物志</span></div>
+      <div><PatternGlyph glyph={glyph} color={color} compact /><span>一抹靛蓝</span></div>
       <i />
     </div>
   )

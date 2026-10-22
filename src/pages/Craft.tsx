@@ -515,7 +515,7 @@ export function CollagePage() {
     const file = new File([blob], '我的布依纹样卡.png', { type: 'image/png' })
     if (navigator.share && navigator.canShare?.({ files: [file] })) {
       try {
-        await navigator.share({ title: '我的布依纹样卡', text: '来自布依风物志的纹样创作', files: [file] })
+        await navigator.share({ title: '我的布依纹样卡', text: '来自一抹靛蓝·布依风物的纹样创作', files: [file] })
         return
       } catch {
         // A cancelled share should not force a download.
@@ -602,7 +602,7 @@ export function CollagePage() {
                   </div>
                 )
               })}
-              <div className="canvas-signature" aria-hidden="true">布依风物志 · 2026</div>
+              <div className="canvas-signature" aria-hidden="true">一抹靛蓝 · 2026</div>
             </div>
 
             <div className="collage-controls">

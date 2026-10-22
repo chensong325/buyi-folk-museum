@@ -15,8 +15,8 @@ const asset = (name: string) => `${import.meta.env.BASE_URL}images/${name}.webp`
 const original = (number: number) => asset(`image${number}`)
 
 export const site = {
-  name: '布依风物志',
-  fullName: '贵州布依族民俗文化数字博物馆',
+  name: '一抹靛蓝·布依风物',
+  fullName: '贵州布依族民俗文化导览',
   intro: '从一抹蓝开始，走进布依族的日常。',
   closing: '石板房顺应山地而生，蓝染与歌声顺着日子而长。',
   audio: `${import.meta.env.BASE_URL}audio/theme.mp3`,
@@ -68,7 +68,7 @@ export const routes: RouteMeta[] = [
     path: '/',
     navTitle: '首页',
     title: '从一抹蓝开始',
-    eyebrow: '贵州布依族民俗文化数字博物馆',
+    eyebrow: '贵州布依族民俗文化导览',
     description: '沿着蓝染、歌声与节令，走进布依族的生活现场。',
     theme: 'home',
     order: 0,

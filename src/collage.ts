@@ -176,7 +176,7 @@ export async function renderCollageBlob(placements: CollagePlacement[], size = 1
   ctx.font = '18px "Noto Sans SC", sans-serif'
   ctx.fillText('让传统纹样融入现代审美，让非遗在指尖活起来。', 72, size - 92)
   ctx.textAlign = 'right'
-  ctx.fillText('布依风物志', size - 72, size - 92)
+  ctx.fillText('一抹靛蓝 · 布依风物', size - 72, size - 92)
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
